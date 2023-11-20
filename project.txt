@@ -1,0 +1,138 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Student {
+    char name[50];
+    int rollNumber;
+    char department[50];
+    char section;
+    char collegeName[50];
+    char district[50];
+    char dob[12];
+    char phoneNumber[15];
+    char bloodGroup[5];
+    int age;
+    char username[50];
+    char password[50];
+    struct Student* next;
+};
+
+struct Student* createStudent(char name[], int rollNumber, char department[], char section, char collegeName[], char district[], char dob[], char phoneNumber[], char bloodGroup[], int age, char username[], char password[]) {
+    struct Student* newStudent = (struct Student*)malloc(sizeof(struct Student));
+    if (newStudent == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        exit(1)…
+[12:24 AM, 11/20/2023] Suruleyyyy 💕: #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Student {
+    char name[50];
+    int rollNumber;
+    char department[50];
+    char section;
+    char collegeName[50];
+    char district[50];
+    char dob[12];
+    char phoneNumber[15];
+    char bloodGroup[5];
+    int age;
+    char username[50];
+    char password[50];
+    struct Student* next;
+};
+
+struct Student* createStudent(char name[], int rollNumber, char department[], char section, char collegeName[], char district[], char dob[], char phoneNumber[], char bloodGroup[], int age, char username[], char password[]) {
+    struct Student* newStudent = (struct Student*)malloc(sizeof(struct Student));
+    if (newStudent == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        exit(1);
+    }
+    strcpy(newStudent->name, name);
+    newStudent->rollNumber = rollNumber;
+    strcpy(newStudent->department, department);
+    newStudent->section = section;
+    strcpy(newStudent->collegeName, collegeName);
+    strcpy(newStudent->district, district);
+    strcpy(newStudent->dob, dob);
+    strcpy(newStudent->phoneNumber, phoneNumber);
+    strcpy(newStudent->bloodGroup, bloodGroup);
+    newStudent->age = age;
+    strcpy(newStudent->username, username);
+    strcpy(newStudent->password, password);
+    newStudent->next = NULL;
+    return newStudent;
+}
+
+void printStudentDetails(struct Student* student)
+{
+    printf("Name: %s\n", student->name);
+    printf("Roll Number: %d\n", student->rollNumber);
+    printf("Department: %s\n", student->department);
+    printf("Section: %c\n", student->section);
+    printf("College Name: %s\n", student->collegeName);
+    printf("District: %s\n", student->district);
+    printf("DOB: %s\n", student->dob);
+    printf("Phone Number: %s\n", student->phoneNumber);
+    printf("Blood Group: %s\n", student->bloodGroup);
+    printf("Age: %d\n", student->age);
+}
+
+int main()
+{
+    // Creating 15 student records
+    struct Student* head = createStudent("Student 1 Name", 1, "Computer Science", 'A', "XYZ College", "District 1", "01/01/2000", "1234567890", "O+", 22, "user1", "pass1");
+    head->next = createStudent("Student 2 Name", 2, "Electrical Engineering", 'B', "ABC College", "District 2", "02/02/2000", "2345678901", "A+", 21, "user2", "pass2");
+    head->next->next = createStudent("Student 3 Name", 3, "Mechanical Engineering", 'C', "PQR College", "District 3", "03/03/2000", "3456789012", "B+", 20, "user3", "pass3");
+    head->next->next->next = createStudent("Student 4 Name", 4, "Computer Science", 'A', "XYZ College", "District 1", "01/01/2000", "1234567890", "O+", 22, "user4", "pass4");
+    head->next->next->next->next = createStudent("Student 5 Name", 5, "Electrical Engineering", 'B', "ABC College", "District 2", "02/02/2000", "2345678901", "A+", 21, "user5", "pass5");
+    head->next->next->next->next->next = createStudent("Student 6 Name", 6, "Mechanical Engineering", 'C', "PQR College", "District 3", "03/03/2000", "3456789012", "B+", 20, "user6", "pass6");
+    head->next->next->next->next->next->next = createStudent("Student 7 Name", 7, "Computer Science", 'A', "XYZ College", "District 1", "01/01/2000", "1234567890", "O+", 22, "user7", "pass7");
+    head->next->next->next->next->next->next->next = createStudent("Student 8 Name", 8, "Electrical Engineering", 'B', "ABC College", "District 2", "02/02/2000", "2345678901", "A+", 21, "user8", "pass8");
+    head->next->next->next->next->next->next->next->next = createStudent("Student 9 Name", 9, "Mechanical Engineering", 'C', "PQR College", "District 3", "03/03/2000", "3456789012", "B+", 20, "user9", "pass9");
+    head->next->next->next->next->next->next->next->next->next = createStudent("Student 10 Name", 10, "Computer Science", 'A', "XYZ College", "District 1", "01/01/2000", "1234567890", "O+", 22, "user10", "pass10");
+    head->next->next->next->next->next->next->next->next->next->next = createStudent("Student 11 Name", 11, "Electrical Engineering", 'B', "ABC College", "District 2", "02/02/2000", "2345678901", "A+", 21, "user11", "pass11");
+    head->next->next->next->next->next->next->next->next->next->next->next = createStudent("Student 12 Name", 12, "Mechanical Engineering", 'C', "PQR College", "District 3", "03/03/2000", "3456789012", "B+", 20, "user12", "pass12");
+    head->next->next->next->next->next->next->next->next->next->next->next->next = createStudent("Student 13 Name", 13, "Computer Science", 'A', "XYZ College", "District 1", "01/01/2000", "1234567890", "O+", 22, "user13", "pass13");
+    head->next->next->next->next->next->next->next->next->next->next->next->next->next = createStudent("Student 14 Name", 14, "Electrical Engineering", 'B', "ABC College", "District 2", "02/02/2000", "2345678901", "A+", 21, "user14", "pass14");
+    head->next->next->next->next->next->next->next->next->next->next->next->next->next->next = createStudent("Student 15 Name", 15, "Mechanical Engineering", 'C', "PQR College", "District 3", "03/03/2000", "3456789012", "B+", 20, "user15", "pass15");
+    
+    char username[50];
+    char password[50];
+    printf("WELCOME\n");
+    printf("Enter username: ");
+    scanf("%s", username);
+    printf("Enter password: ");
+    scanf("%s", password);
+
+
+    struct Student* current = head;
+    while (current != NULL)
+    {
+        if (strcmp(current->username, username) == 0 && strcmp(current->password, password) == 0)
+        {
+            printf("Student details found:\n");
+            printStudentDetails(current);
+            break;
+        }
+        else{
+            printf("User not found\n");
+            printf(" Username 'HINT': user\n");
+            break;
+        }
+ current = current->next;
+    }
+
+    // Free allocated memory
+    current = head;
+    while (current != NULL)
+    {
+        struct Student* temp = current;
+        current = current->next;
+        free(temp);
+    }
+    return 0;
+}
